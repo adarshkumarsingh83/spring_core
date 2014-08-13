@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+    <bean id="myBusinessClass" class="com.adarsh.service.impl.MyBusinessServiceImpl">
+        <property name="setObject" ref="nameSet"/>
+    </bean>
+
+    <util:set id="nameSet" scope="singleton"
+              value-type="java.lang.String"
+              set-class="java.util.LinkedHashSet">
+
+        <value>adarsh kumar singh</value>
+        <value>amait kumar singh</value>
+        <value>amritesh kumar singh</value>
+        <value>alok kumar singh</value>
+        <value>abhishek kumar singh</value>
+    </util:set>
+
+</beans> 
+
+

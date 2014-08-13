@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="applicationProperties" class="com.adarsh.spring.properties.impl.ApplicationPropertiesImpl">
+        <property name="locations">
+            <list>
+                <value>classpath:/properties/*.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="myBean" class="com.adarsh.spring.bean.MyBean">
+        <property name="name1" value="${app.name1}"/>
+        <property name="name2" value="${app.name2}"/>
+        <property name="name3" value="${app.name3}"/>
+        <property name="name4" value="${app.name4}"/>
+    </bean>
+
+
+</beans>

@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+   <bean id="employeeService" class="com.adarsh.spring.service.EmployeeService" />
+
+   <bean id="employeeRepository" class="com.adarsh.spring.respository.EmployeeRepository" />
+
+    <bean id="employee" class="com.adarsh.spring.bean.Employee">
+        <property name="empId" value="101"/>
+        <property name="empName" value="Adarh Kumar singh"/>
+    </bean>
+</beans>

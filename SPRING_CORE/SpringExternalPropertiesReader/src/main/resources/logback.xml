@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="1000000 seconds">
+
+     <property resource="${APOLLO_HOME}/dx/properties/applicationProperties.properties" />
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <appender name="rollingFileAppender"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <!--  <customFilSystem>true</customFilSystem>-->
+        <file>${APOLLO_HOME}/dx/log/applicationLogFile.log</file>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <customFilSystem>true</customFilSystem>
+            <FileNamePattern>${APOLLO_HOME}/dx/log/applicationLogFileZip.%i.log.zip</FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>10</MaxIndex>
+        </rollingPolicy>
+
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>1024MB</MaxFileSize>
+        </triggeringPolicy>
+
+    </appender>
+
+    <!-- Application Loggers -->
+    <logger name="com.adarsh.spring" level="${apollo.logger.level}"/>
+
+    <logger name="org" level="INFO"/>
+
+    <logger name="net" level="INFO"/>
+
+    <logger name="com.mysql" level="INFO"/>
+    <!-- c3p0 logger -->
+    <logger name="com.mchange" level="INFO"/>
+
+    <logger name="net.sf.ehcache" level="INFO"/>
+
+    <logger name="net.sf.ehcache.hibernate" level="INFO"/>
+
+    <logger name="org.hibernate.cache" level="${apollo.hibernate.logger.level}"/>
+
+    <logger name="org.hibernate" level="${apollo.hibernate.logger.level}"/>
+
+    <logger name="org.hibernate" level="${apollo.hibernate.logger.level}"/>
+
+    <!-- 3rdparty Loggers -->
+    <logger name="org.springframework" level="${apollo.spring.logger.level}"/>
+
+    <logger name="org.springframework.core" level="${apollo.spring.logger.level}"/>
+
+    <logger name="org.springframework.beans" level="${apollo.spring.logger.level}"/>
+
+    <logger name="org.springframework.beans.factory" level="${apollo.spring.logger.level}"/>
+    <!-- entity creation loggers. -->
+    <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="${apollo.spring.logger.level}"/>
+
+    <logger name="org.springframework.context" level="${apollo.spring.logger.level}"/>
+
+    <logger name="org.springframework.transaction" level="${apollo.spring.logger.level}"/>
+
+    <logger name="org.springframework.jdbc" level="${apollo.spring.logger.level}"/>
+
+    <logger name="org.springframework.orm" level="${apollo.spring.logger.level}"/>
+
+    <root level="${application.logger.level}">
+        <appender-ref ref="rollingFileAppender"/>
+        <appender-ref ref="consoleAppender"/>
+    </root>
+
+</configuration>

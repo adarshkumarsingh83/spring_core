@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/util
+                http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="businessObject" class="com.adarsh.spring.service.MyBusinessServiceImpl">
+        <property name="propertiesFile" ref="nameProperty"/>
+    </bean>
+
+    <util:properties id="nameProperty" scope="prototype">
+        <prop key="101">adarsh kumar singh</prop>
+        <prop key="102">amit kumar singh</prop>
+        <prop key="103">abhishek kumar singh</prop>
+    </util:properties>
+
+</beans> 
+
+
