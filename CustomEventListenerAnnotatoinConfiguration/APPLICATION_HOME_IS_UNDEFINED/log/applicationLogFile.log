@@ -1,0 +1,10 @@
+2016-09-23_15:22:58.573 [main] INFO  c.e.a.l.ContextRefreshedHandler [ContextRefreshedHandler.java:21]- :=> ContextRefreshedEvent Received
+2016-09-23_15:22:58.580 [main] INFO  c.e.a.l.ContextStartEventHandler [ContextStartEventHandler.java:21]- :=> ContextStartedEvent Received
+2016-09-23_15:22:58.581 [main] INFO  c.e.adarsh.service.MyServiceImpl [MyServiceImpl.java:28]- :=> Your Message : WELCOME ADARSH KUMAR SINGH
+2016-09-23_15:22:58.585 [main] INFO  c.e.a.l.MethodCallEventListener [MethodCallEventListener.java:22]- :=> ContextRefreshedEvent Received
+2016-09-23_15:22:58.586 [main] INFO  c.e.a.l.ContextStoppedEventHandler [ContextStoppedEventHandler.java:21]- :=> ContextStoppedEvent Received
+2016-09-23_15:24:37.678 [main] INFO  c.e.a.l.ContextRefreshedHandler [ContextRefreshedHandler.java:21]- :=> ContextRefreshedEvent Received
+2016-09-23_15:24:37.684 [main] INFO  c.e.a.l.ContextStartEventHandler [ContextStartEventHandler.java:21]- :=> ContextStartedEvent Received
+2016-09-23_15:24:37.684 [main] INFO  c.e.adarsh.service.MyServiceImpl [MyServiceImpl.java:28]- :=> Your Message : WELCOME ADARSH KUMAR SINGH
+2016-09-23_15:24:37.688 [main] INFO  c.e.a.l.MethodCallEventListener [MethodCallEventListener.java:22]- :=> MethodCallEventListener MyService getMessage() invoked 
+2016-09-23_15:24:37.689 [main] INFO  c.e.a.l.ContextStoppedEventHandler [ContextStoppedEventHandler.java:21]- :=> ContextStoppedEvent Received

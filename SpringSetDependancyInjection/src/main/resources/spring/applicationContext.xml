@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/util
+                            http://www.springframework.org/schema/util/spring-util.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath*:/properties/application.properties"/>
+
+    <bean id="myBusinessClass" class="com.espark.adarsh.service.impl.MyBusinessServiceImpl">
+        <property name="setObject" ref="nameSet"/>
+    </bean>
+
+    <util:set id="nameSet" scope="singleton"
+              value-type="java.lang.String"
+              set-class="java.util.LinkedHashSet" >
+        <value>${user.name1}</value>
+        <value>${user.name2}</value>
+        <value>${user.name3}</value>
+        <value>amritesh kumar singh</value>
+        <value>alok kumar singh</value>
+        <value>abhishek kumar singh</value>
+    </util:set>
+
+</beans> 
+
+

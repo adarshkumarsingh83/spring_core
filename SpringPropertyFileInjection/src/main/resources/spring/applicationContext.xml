@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/util
+                            http://www.springframework.org/schema/util/spring-util.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath*:/properties/application.properties"/>
+
+    <bean id="businessObject" class="com.espark.adarsh.service.MyBusinessServiceImpl">
+        <property name="propertiesFile" ref="nameProperty"/>
+    </bean>
+
+    <util:properties id="nameProperty"
+                     scope="prototype">
+
+        <prop key="101">${user.name1}</prop>
+        <prop key="102">${user.name2}</prop>
+        <prop key="103">${user.name3}</prop>
+        <prop key="104">amit kumar singh</prop>
+        <prop key="105">abhishek kumar singh</prop>
+    </util:properties>
+
+</beans> 
+
+
