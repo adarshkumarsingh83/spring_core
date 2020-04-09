@@ -28,17 +28,22 @@ public class LifeCycleBean implements InitializingBean, DisposableBean,
     @Value("espark.adarsh.name")
     String name;
 
-    @PostConstruct
-    public void initMethod() {
-         //TODO custom init 8
-        log.info("custom init()");
+    @Override
+    public void setBeanName(String arg0) {
+        // TODO Auto-generated method stub  1
+        log.info("BeanNameAware setBeanName()");
     }
 
+    @Override
+    public void setBeanClassLoader(ClassLoader arg0) {
+        // TODO Auto-generated method stub 2
+        log.info("BeanClassLoaderAware setBeanClassLoader()");
+    }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
-        //TODO InitializingBean 9
-        log.info("InitializingBean afterPropertiesSet()");
+    public void setBeanFactory(BeanFactory arg0) throws BeansException {
+        // TODO Auto-generated method stub 3
+        log.info("BeanFactoryAware setBeanFactory()");
     }
 
     @Override
@@ -48,9 +53,9 @@ public class LifeCycleBean implements InitializingBean, DisposableBean,
     }
 
     @Override
-    public void setNotificationPublisher(NotificationPublisher arg0) {
-        // TODO only execute in jmx flow
-        log.info("NotificationPublisherAware setNotificationPublisher()");
+    public void setApplicationEventPublisher(ApplicationEventPublisher arg0) {
+        // TODO Auto-generated method stub 5
+        log.info("ApplicationEventPublisherAware setApplicationEventPublisher()");
     }
 
     @Override
@@ -60,13 +65,26 @@ public class LifeCycleBean implements InitializingBean, DisposableBean,
     }
 
     @Override
-    public void setLoadTimeWeaver(LoadTimeWeaver arg0) {
-        // TODO  execute in aop flow
-        log.info("LoadTimeWeaverAware setLoadTimeWeaver()");
+    public void setApplicationContext(ApplicationContext arg0)
+            throws BeansException {
+        // TODO Auto-generated method stub 7
+        log.info("ApplicationContextAware setApplicationContext()");
+    }
+
+    @PostConstruct
+    public void initMethod() {
+        //TODO custom init 8
+        log.info("custom init()");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        //TODO InitializingBean 9
+        log.info("InitializingBean afterPropertiesSet()");
     }
 
     @Nullable
-     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         // TODO 10
         log.info("BeanPostProcessor postProcessBeforeInitialization()");
         return bean;
@@ -79,37 +97,11 @@ public class LifeCycleBean implements InitializingBean, DisposableBean,
         return bean;
     }
 
-    @Override
-    public void setBeanName(String arg0) {
-        // TODO Auto-generated method stub  1
-        log.info("BeanNameAware setBeanName()");
+    @PreDestroy
+    public void destroyMethod() {
+        //TODO custom destroy 12
+        log.info("custom destroy()");
     }
-
-    @Override
-    public void setBeanFactory(BeanFactory arg0) throws BeansException {
-        // TODO Auto-generated method stub 3
-        log.info("BeanFactoryAware setBeanFactory()");
-    }
-
-    @Override
-    public void setBeanClassLoader(ClassLoader arg0) {
-        // TODO Auto-generated method stub 2
-        log.info("BeanClassLoaderAware setBeanClassLoader()");
-    }
-
-    @Override
-    public void setApplicationEventPublisher(ApplicationEventPublisher arg0) {
-        // TODO Auto-generated method stub 5
-        log.info("ApplicationEventPublisherAware setApplicationEventPublisher()");
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext arg0)
-            throws BeansException {
-        // TODO Auto-generated method stub 7
-        log.info("ApplicationContextAware setApplicationContext()");
-    }
-
 
     @Override
     public void destroy() throws Exception {
@@ -117,10 +109,15 @@ public class LifeCycleBean implements InitializingBean, DisposableBean,
         log.info("DisposableBean destroy()");
     }
 
+    @Override
+    public void setNotificationPublisher(NotificationPublisher arg0) {
+        // TODO only execute in jmx flow
+        log.info("NotificationPublisherAware setNotificationPublisher()");
+    }
 
-    @PreDestroy
-    public void destroyMethod() {
-        //TODO custom destroy 12
-        log.info("custom destroy()");
+    @Override
+    public void setLoadTimeWeaver(LoadTimeWeaver arg0) {
+        // TODO  execute in aop flow
+        log.info("LoadTimeWeaverAware setLoadTimeWeaver()");
     }
 }
