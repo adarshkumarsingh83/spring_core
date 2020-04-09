@@ -1,9 +1,0 @@
-2016-10-30_11:40:04.059 [main] INFO  c.a.s.service.impl.MySpringBeanClass [MySpringBeanClass.java:34]- :=> hi ADARSH KUMAR SINGH
-2016-10-30_11:40:04.102 [main] INFO  c.a.s.service.impl.MySpringBeanClass [MySpringBeanClass.java:35]- :=> Bean Class Name businessObject
-2016-10-30_11:40:04.103 [main] INFO  c.a.s.service.impl.MySpringBeanClass [MySpringBeanClass.java:36]- :=> ApplicationContext object org.springframework.context.support.GenericApplicationContext@b7f003
-2016-10-30_11:45:58.834 [main] INFO  c.a.s.service.impl.MySpringBeanClass [MySpringBeanClass.java:34]- :=> hi ADARSH KUMAR SINGH
-2016-10-30_11:45:58.842 [main] INFO  c.a.s.service.impl.MySpringBeanClass [MySpringBeanClass.java:35]- :=> Bean Class Name businessObject
-2016-10-30_11:45:58.843 [main] INFO  c.a.s.service.impl.MySpringBeanClass [MySpringBeanClass.java:36]- :=> ApplicationContext object org.springframework.context.support.FileSystemXmlApplicationContext@1221be2
-2016-10-30_12:22:32.597 [main] INFO  c.a.s.service.impl.MySpringBeanClass [MySpringBeanClass.java:34]- :=> hi ADARSH KUMAR SINGH
-2016-10-30_12:22:32.604 [main] INFO  c.a.s.service.impl.MySpringBeanClass [MySpringBeanClass.java:35]- :=> Bean Class Name businessObject
-2016-10-30_12:22:32.605 [main] INFO  c.a.s.service.impl.MySpringBeanClass [MySpringBeanClass.java:36]- :=> ApplicationContext object org.springframework.context.support.GenericApplicationContext@1d8db5a

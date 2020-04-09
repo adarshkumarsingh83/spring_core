@@ -1,3 +1,0 @@
-2016-09-23_11:44:35.988 [main] INFO  c.e.a.e.CustomEventHandler - org.springframework.context.event.ContextRefreshedEvent[source=org.springframework.context.annotation.AnnotationConfigApplicationContext@49c2faae: startup date [Fri Sep 23 11:44:35 IST 2016]; root of context hierarchy]
-2016-09-23_11:44:35.992 [main] INFO  com.espark.adarsh.service.MyService - Your Message : hi this is adarsh kumar singh
-2016-09-23_11:44:35.993 [main] INFO  c.e.a.e.CustomEventHandler - My Custom Event Generated 
