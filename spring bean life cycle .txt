@@ -1,0 +1,15 @@
+Instantiate of Bean Object 
+Population of Properties  
+call setBeanName-> BeanNameAware
+call setBeanFactory-> BeanFactoryAware 
+call setApplicationContext-> ApplicationContextAware
+call postProcessBeforeInitialization -> BeanPostProcessor
+call afterPropertiesSet -> InitializingBean 
+call custom init() 
+call postProcessAfterInitialization -> BeanPostProcessor 
+Bean is ready to use
+....
+....
+ContainerShutDown 
+call destroy()-> DisposableBean 
+call custom destroy() 
