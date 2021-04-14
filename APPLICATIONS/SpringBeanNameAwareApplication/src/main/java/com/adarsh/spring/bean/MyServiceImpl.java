@@ -1,5 +1,6 @@
 package com.adarsh.spring.bean;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanNameAware;
@@ -9,9 +10,9 @@ import org.springframework.beans.factory.BeanNameAware;
  * @author $LastChangedBy: adarsh $
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
+@Slf4j
 public class MyServiceImpl implements MyService,BeanNameAware {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(MyServiceImpl.class);
 
     private String name;
 
@@ -20,7 +21,7 @@ public class MyServiceImpl implements MyService,BeanNameAware {
     }
 
     public void showBean() {
-        LOGGER.info(" :=> Bean name : " + this.name);
+        log.info(" :=> Bean name : " + this.name);
     }
 
     private String msg;
