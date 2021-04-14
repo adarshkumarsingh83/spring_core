@@ -1,0 +1,10 @@
+2021-04-14_17:32:18.986 [main] INFO  c.a.s.initializer.BeanInitializer [BeanInitializer.java:18]-  :=> BeforeInitialization : myService
+2021-04-14_17:32:18.988 [main] INFO  c.a.spring.bean.impl.MyServiceImpl [MyServiceImpl.java:17]-  :=> Bean is going through init.
+2021-04-14_17:32:18.988 [main] INFO  c.a.s.initializer.BeanInitializer [BeanInitializer.java:25]-  :=> AfterInitialization : myService
+2021-04-14_17:32:18.998 [main] INFO  com.adarsh.spring.ApplicationMain [ApplicationMain.java:23]- WELCOME TO APPLICATION ADARSH KUMAR
+2021-04-14_17:32:19.000 [SpringContextShutdownHook] INFO  c.a.spring.bean.impl.MyServiceImpl [MyServiceImpl.java:31]-  :=> Bean will destroy now.
+2021-04-14_17:32:24.979 [main] INFO  c.a.s.initializer.BeanInitializer [BeanInitializer.java:18]-  :=> BeforeInitialization : myService
+2021-04-14_17:32:24.981 [main] INFO  c.a.spring.bean.impl.MyServiceImpl [MyServiceImpl.java:17]-  :=> Bean is going through init.
+2021-04-14_17:32:24.981 [main] INFO  c.a.s.initializer.BeanInitializer [BeanInitializer.java:25]-  :=> AfterInitialization : myService
+2021-04-14_17:32:24.991 [main] INFO  com.adarsh.spring.ApplicationMain [ApplicationMain.java:23]- WELCOME TO APPLICATION ADARSH KUMAR
+2021-04-14_17:32:24.993 [SpringContextShutdownHook] INFO  c.a.spring.bean.impl.MyServiceImpl [MyServiceImpl.java:31]-  :=> Bean will destroy now.
