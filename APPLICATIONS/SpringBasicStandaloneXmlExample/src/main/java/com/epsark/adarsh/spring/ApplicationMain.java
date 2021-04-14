@@ -31,7 +31,7 @@
 package com.epsark.adarsh.spring;
 
 import com.epsark.adarsh.spring.service.MessageService;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -41,10 +41,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 public class ApplicationMain {
 
 
-    private static final Logger LOGGER = Logger.getLogger(ApplicationMain.class);
 
     public static void main(String[] args) {
 
@@ -53,7 +53,7 @@ public class ApplicationMain {
         final MessageService myService = context.getBean(MessageService.class);
         final String result = myService.getMessage(System.getProperty("user.name"));
 
-        LOGGER.info("Response from the service " + result);
+        log.info("Response from the service " + result);
 
         context.stop();
     }
