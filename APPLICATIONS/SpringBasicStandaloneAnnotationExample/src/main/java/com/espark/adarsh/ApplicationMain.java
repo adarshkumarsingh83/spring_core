@@ -33,6 +33,7 @@ package com.espark.adarsh;
 
 import com.espark.adarsh.configuration.ApplicationConfiguration;
 import com.espark.adarsh.service.MessageService;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -43,15 +44,15 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 public class ApplicationMain {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationMain.class);
 
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);
         final MessageService messageService = context.getBean(MessageService.class);
         final String message = messageService.getMessage(System.getProperty("user.name"));
-        LOGGER.info("Response from the service {}" + message);
+        log.info("Response from the service {}" + message);
     }
 }
