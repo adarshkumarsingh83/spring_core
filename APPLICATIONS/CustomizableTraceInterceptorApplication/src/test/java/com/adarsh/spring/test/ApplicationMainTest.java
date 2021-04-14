@@ -31,9 +31,15 @@
 package com.adarsh.spring.test;
 
 import com.adarsh.spring.bean.*;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
  * @author Adarsh Kumar
@@ -41,12 +47,17 @@ import org.springframework.core.io.ClassPathResource;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
-public class ApplicationMain {
+@Slf4j
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = {"classpath:/spring/Spring-cfg.xml"})
+public class ApplicationMainTest {
 
-    public static void main(String[] args) throws Exception {
-        final BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("spring/Spring-cfg.xml"));
-        final MySpringBean testBean = (MySpringBean) beanFactory.getBean("afterBean");
-        testBean.showValues();
+    @Autowired
+    MySpringBean mySpringBean;
+
+    @Test
+    void testService() {
+        mySpringBean.showValues();
     }
 }
 
