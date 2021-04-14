@@ -1,5 +1,6 @@
 package com.espark.adarsh.listener;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.ContextStoppedEvent;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
  * @author $LastChangedBy: adarsh $
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
+@Slf4j
 @Component
 public class ContextStoppedEventHandler {
 
@@ -18,6 +20,6 @@ public class ContextStoppedEventHandler {
 
     @EventListener
     public void onApplicationEvent(ContextStoppedEvent event) {
-        LOGGER.info(":=> ContextStoppedEvent Received");
+        log.info(":=> ContextStoppedEvent Received");
     }
 }
