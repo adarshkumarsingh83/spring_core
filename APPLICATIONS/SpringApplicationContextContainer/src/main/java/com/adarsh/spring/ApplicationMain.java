@@ -28,7 +28,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.adarsh.spring.test;
+package com.adarsh.spring;
 
 import com.adarsh.spring.service.MySpringInterface;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
@@ -38,12 +38,12 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
-public class ClientClass {
+public class ApplicationMain {
 
-	public static void main(String[] args) {
-		final FileSystemXmlApplicationContext ctc=new FileSystemXmlApplicationContext("src\\main\\resources\\configuration\\applicationContext.xml");
+    public static void main(String[] args) {
+        final FileSystemXmlApplicationContext ctc=new FileSystemXmlApplicationContext("src/main/resources/configuration/applicationContext.xml");
         final MySpringInterface object=(MySpringInterface)ctc.getBean("businessObject");
-	    object.displayData();
-	}
+        object.displayData();
+    }
 
 }

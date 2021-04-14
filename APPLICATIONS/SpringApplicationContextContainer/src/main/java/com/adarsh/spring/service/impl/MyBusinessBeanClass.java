@@ -31,6 +31,7 @@
 package com.adarsh.spring.service.impl;
 
 import com.adarsh.spring.service.MySpringInterface;
+import lombok.extern.slf4j.Slf4j;
 
 import static java.lang.System.out;
 import java.util.*;
@@ -41,6 +42,7 @@ import java.util.*;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 public class MyBusinessBeanClass implements MySpringInterface {
 	
 	private String userName;
@@ -86,7 +88,7 @@ public class MyBusinessBeanClass implements MySpringInterface {
 	
 	public void displayData() {
 	     
-        out.println("Date is "+this.date+" Nmae is "+this.userName+" "+this.getWish());
+        log.info("Date is "+this.date+" Nmae is "+this.userName+" "+this.getWish());
 	}
 
 }
