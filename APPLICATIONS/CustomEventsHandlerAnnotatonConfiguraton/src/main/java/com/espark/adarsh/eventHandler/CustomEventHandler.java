@@ -30,8 +30,7 @@
  */
 package com.espark.adarsh.eventHandler;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
@@ -44,12 +43,12 @@ import java.util.EventListener;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 @Component("customEventHandler")
 public class CustomEventHandler <T extends EventListener> implements ApplicationListener {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(CustomEventHandler.class);
 
     public void onApplicationEvent(ApplicationEvent event) {
-        LOGGER.info(event.toString());
+        log.info(event.toString());
     }
 }

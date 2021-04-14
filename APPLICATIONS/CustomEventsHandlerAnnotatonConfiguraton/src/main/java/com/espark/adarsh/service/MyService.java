@@ -41,7 +41,6 @@ import org.slf4j.LoggerFactory;
  */
 public interface MyService {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(MyService.class);
 
     public void getMessage();
 

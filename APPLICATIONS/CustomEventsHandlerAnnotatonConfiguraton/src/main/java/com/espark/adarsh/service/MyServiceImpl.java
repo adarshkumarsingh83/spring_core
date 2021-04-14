@@ -31,6 +31,7 @@
 package com.espark.adarsh.service;
 
 import com.espark.adarsh.event.CustomEventPublisher;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,7 @@ import org.springframework.stereotype.Service;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 @Service("myService")
 public class MyServiceImpl implements MyService {
 
@@ -51,7 +53,7 @@ public class MyServiceImpl implements MyService {
     private CustomEventPublisher customEventPublisher;
 
     public void getMessage() {
-        LOGGER.info("Your Message : " + message);
+        log.info("Your Message : " + message);
         this.customEventPublisher.publish();
     }
 }
