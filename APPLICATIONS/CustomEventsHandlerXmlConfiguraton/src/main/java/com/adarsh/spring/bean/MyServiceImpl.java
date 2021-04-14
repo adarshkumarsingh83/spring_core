@@ -31,6 +31,7 @@
 package com.adarsh.spring.bean;
 
 import com.adarsh.spring.event.CustomEventPublisher;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Adarsh Kumar
@@ -38,6 +39,7 @@ import com.adarsh.spring.event.CustomEventPublisher;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 public class MyServiceImpl implements MyService {
 
     private String message;
@@ -53,7 +55,7 @@ public class MyServiceImpl implements MyService {
     }
 
     public void getMessage() {
-        LOGGER.info("Your Message : " + message);
+        log.info("Your Message : " + message);
         this.customEventPublisher.publish();
     }
 }
