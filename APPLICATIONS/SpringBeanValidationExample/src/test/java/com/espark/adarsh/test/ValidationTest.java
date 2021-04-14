@@ -33,12 +33,14 @@ package com.espark.adarsh.test;
 import com.espark.adarsh.bean.Employee;
 import com.espark.adarsh.bean.Gender;
 import com.espark.adarsh.validator.BeanValidator;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,7 +51,8 @@ import java.util.Date;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@Slf4j
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"classpath:/applicationContext.xml"})
 public class ValidationTest {
 
@@ -71,7 +74,7 @@ public class ValidationTest {
         this.validator.validate(employee);
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testBeanValidation2() throws Exception {
         Employee employee = new Employee() {
             {
@@ -82,10 +85,13 @@ public class ValidationTest {
                 setDateOfBirth(getDob("13-sep-2983"));
             }
         };
-        this.validator.validate(employee);
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            this.validator.validate(employee);
+        });
+
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testBeanValidation3() throws Exception {
         Employee employee = new Employee() {
             {
@@ -96,10 +102,12 @@ public class ValidationTest {
                 setDateOfBirth(getDob("13-sep-1983"));
             }
         };
-        this.validator.validate(employee);
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            this.validator.validate(employee);
+        });
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testBeanValidation4() throws Exception {
         Employee employee = new Employee() {
             {
@@ -110,10 +118,12 @@ public class ValidationTest {
                 setDateOfBirth(getDob("13-sep-2983"));
             }
         };
-        this.validator.validate(employee);
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            this.validator.validate(employee);
+        });
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testBeanValidation5() throws Exception {
         Employee employee = new Employee() {
             {
@@ -124,12 +134,14 @@ public class ValidationTest {
                 setDateOfBirth(getDob("13-sep-2983"));
             }
         };
-        this.validator.validate(employee);
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            this.validator.validate(employee);
+        });
     }
 
-    private Date getDob(String date)throws Exception{
+    private Date getDob(String date) throws Exception {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
-        return  formatter.parse(date);
+        return formatter.parse(date);
     }
 
 }
