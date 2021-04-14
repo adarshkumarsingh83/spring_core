@@ -29,11 +29,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.adarsh.spring.bean;
+package com.espark.adarsh;
 
-import org.springframework.beans.BeansException;
+import com.espark.adarsh.service.MessageService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author Adarsh Kumar
@@ -41,26 +42,14 @@ import org.springframework.context.ApplicationContextAware;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
-public class MyServiceImpl implements MyService, ApplicationContextAware {
+@Slf4j
+public class ApplicationMain {
 
-    private static ApplicationContext context;
 
-    public void setApplicationContext(ApplicationContext applicationContext)
-            throws BeansException {
-
-        context = applicationContext;
-        LOGGER.info(" :-> " + context.getId());
-        LOGGER.info(" :-> " + context.getDisplayName());
-        LOGGER.info(" :-> " + context.getBean("myService"));
+    public static void main(String[] args) {
+        final ApplicationContext context = new ClassPathXmlApplicationContext("classpath:/application-configuration.xml");
+        final MessageService bean = context.getBean(MessageService.class);
+        log.info(" :=> " + bean.getMessage());
     }
 
-    private String msg;
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
 }

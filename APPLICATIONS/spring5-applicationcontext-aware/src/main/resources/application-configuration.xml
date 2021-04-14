@@ -6,10 +6,10 @@
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath*:/properties/application.properties"/>
+    <context:property-placeholder location="classpath*:application.properties"/>
 
-    <bean id="myService" class="com.adarsh.spring.bean.MyServiceImpl">
-        <property name="msg" value="${app.msg}"/>
+    <bean id="messageService" class="com.espark.adarsh.service.MessageServiceImpl">
+        <property name="message" value="${application.message}"/>
     </bean>
 
 </beans>

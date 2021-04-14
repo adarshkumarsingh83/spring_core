@@ -29,10 +29,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.adarsh.spring.bean;
+package com.espark.adarsh.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Adarsh Kumar
@@ -40,12 +44,30 @@ import org.slf4j.LoggerFactory;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
-public interface MyService {
+@Slf4j
+@Service("messageService")
+public class MessageServiceImpl implements MessageService, ApplicationContextAware {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(MyService.class);
+    @Value("${application.message}")
+    private String message;
 
-    public String getMsg();
+    private ApplicationContext context;
 
-    public void setMsg(String msg);
+    public void setApplicationContext(ApplicationContext applicationContext)
+            throws BeansException {
 
+        context = applicationContext;
+        log.info(" :-> " + context.getId());
+        log.info(" :-> " + context.getDisplayName());
+        log.info(" :-> " + context.getBean("messageService"));
+    }
+
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

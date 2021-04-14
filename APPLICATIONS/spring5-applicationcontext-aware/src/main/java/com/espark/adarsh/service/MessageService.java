@@ -29,13 +29,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.adarsh.spring.main;
+package com.espark.adarsh.service;
 
-import com.adarsh.spring.bean.MyService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author Adarsh Kumar
@@ -43,14 +38,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
-public class ApplicationMain {
+public interface MessageService {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(ApplicationMain.class);
 
-    public static void main(String[] args) {
-        final ApplicationContext context = new ClassPathXmlApplicationContext("classpath:/spring/applicationContext.xml");
-        final MyService bean = (MyService) context.getBean("myService");
-        LOGGER.info(" :=> " + bean.getMsg());
-    }
+    String getMessage();
 
 }
