@@ -31,6 +31,7 @@
 package com.adarsh.spring.test;
 
 import com.adarsh.spring.bean.LoggingBean;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -42,11 +43,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * Created by Adarsh on 4/20/15.
  */
+@Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/spring/applicationContext.xml"})
 public class ApplicationTest {
-
-    public static final Logger LOGGER = LoggerFactory.getLogger(ApplicationTest.class);
 
     @Autowired(required = true)
     private LoggingBean loggingBean;
@@ -54,6 +54,6 @@ public class ApplicationTest {
     @Test
     public void testMyService(){
         this.loggingBean.run();
-        LOGGER.info("Logging Bean Executed ");
+        log.info("Logging Bean Executed ");
     }
 }

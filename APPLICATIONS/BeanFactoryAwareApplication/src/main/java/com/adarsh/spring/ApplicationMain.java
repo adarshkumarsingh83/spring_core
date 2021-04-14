@@ -28,7 +28,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.adarsh.spring.main;
+package com.adarsh.spring;
 
 import com.adarsh.spring.bean.LoggingBean;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
@@ -44,7 +44,7 @@ public class ApplicationMain {
 
     public static void main(String[] args) throws Exception {
         final XmlBeanFactory factory = new XmlBeanFactory(new ClassPathResource("spring/applicationContext.xml"));
-        factory.preInstantiateSingletons();
+       // factory.preInstantiateSingletons();
         final LoggingBean loggingBean = factory.getBean(LoggingBean.class);
         loggingBean.run();
     }

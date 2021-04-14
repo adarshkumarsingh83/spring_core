@@ -30,6 +30,7 @@
  */
 package com.adarsh.spring.bean;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -45,10 +46,9 @@ import org.springframework.stereotype.Component;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 @Component
 public class ShutdownHookBean implements BeanFactoryAware, Runnable {
-
-  public static final Logger LOGGER = LoggerFactory.getLogger(ShutdownHookBean.class);
 
   private ConfigurableListableBeanFactory beanFactory;
 
@@ -61,7 +61,7 @@ public class ShutdownHookBean implements BeanFactoryAware, Runnable {
 
   public void run() {
       if (this.beanFactory != null) {
-          LOGGER.info("Destroying singletons.");
+          log.info("Destroying singletons.");
           this.beanFactory.destroySingletons();
       }
   }

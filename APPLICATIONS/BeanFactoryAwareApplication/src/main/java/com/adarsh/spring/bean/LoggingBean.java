@@ -30,6 +30,7 @@
  */
 package com.adarsh.spring.bean;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanNameAware;
@@ -41,10 +42,9 @@ import org.springframework.stereotype.Component;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 @Component
 public class LoggingBean implements BeanNameAware {
-
-    public static final Logger LOGGER = LoggerFactory.getLogger(LoggingBean.class);
 
     private String name;
 
@@ -53,6 +53,6 @@ public class LoggingBean implements BeanNameAware {
     }
 
     public void run() {
-        LOGGER.info("Bean name is'" + this.name + "'.");
+        log.info("Bean name is'" + this.name + "'.");
     }
 }
