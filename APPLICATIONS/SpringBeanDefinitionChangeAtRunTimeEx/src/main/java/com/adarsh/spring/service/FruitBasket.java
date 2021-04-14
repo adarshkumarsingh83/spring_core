@@ -1,4 +1,4 @@
-package com.adarsh.spring;
+package com.adarsh.spring.service;
 
 import com.adarsh.spring.bean.Fruit;
 

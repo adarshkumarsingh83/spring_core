@@ -8,7 +8,7 @@
 
     <bean id="orange" class="com.adarsh.spring.bean.Orange"/>
 
-    <bean id="fruitBasket" class="com.adarsh.spring.FruitBasket" scope="prototype">
+    <bean id="fruitBasket" class="com.adarsh.spring.service.FruitBasket" scope="prototype">
         <property name="fruit" ref="apple"/>
     </bean>
 

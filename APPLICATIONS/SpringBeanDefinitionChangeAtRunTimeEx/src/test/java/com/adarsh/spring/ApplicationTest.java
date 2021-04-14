@@ -1,9 +1,9 @@
 package com.adarsh.spring;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.adarsh.spring.service.FruitBasket;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.BeanFactory;
@@ -12,16 +12,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
  * @author Adarsh
  * @author $LastChangedBy: adarsh $
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@Slf4j
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"classpath:/spring/applicationContext.xml"})
 public class ApplicationTest implements BeanFactoryAware{
 
@@ -33,7 +33,6 @@ public class ApplicationTest implements BeanFactoryAware{
         this.beanFactory=beanFactory;
     }
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(ApplicationTest.class);
 
     @Autowired(required = true)
     private ApplicationContext applicationContext;
@@ -41,7 +40,7 @@ public class ApplicationTest implements BeanFactoryAware{
     @Test
     public void testMyService(){
         this.loadFruitBasket();
-        LOGGER.info(" :=> loading the injected bean");
+        log.info(" :=> loading the injected bean");
         final DefaultListableBeanFactory defaultListableBeanFactory=(DefaultListableBeanFactory)beanFactory;
         final BeanDefinition beanDefinition = defaultListableBeanFactory.getBeanDefinition("fruitBasket");
         final PropertyValue propertyValue = beanDefinition.getPropertyValues().getPropertyValue("fruit");
@@ -53,6 +52,6 @@ public class ApplicationTest implements BeanFactoryAware{
 
     private void loadFruitBasket(){
         final FruitBasket fruitBasket = (FruitBasket)  applicationContext.getBean("fruitBasket");
-        LOGGER.info(" :=> loading fruit basket : "+fruitBasket + " -- " + fruitBasket.getFruit().getName());
+        log.info(" :=> loading fruit basket : "+fruitBasket + " -- " + fruitBasket.getFruit().getName());
     }
 }
