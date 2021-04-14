@@ -32,15 +32,15 @@ package com.espark.adarsh.spring.test;
 
 import com.espark.adarsh.spring.configuration.ApplicationConfiguration;
 import com.espark.adarsh.spring.services.MessageService;
-import org.apache.log4j.Logger;
-import org.junit.Assert;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
  * @author Adarsh Kumar
@@ -48,18 +48,18 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@Slf4j
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {ApplicationConfiguration.class})
 public class MessageServiceTest {
 
-    private static final Logger LOGGER=Logger.getLogger(MessageServiceTest.class);
 
     @Autowired
     private MessageService messageService;
 
     @Before
     public void init() throws Exception {
-        LOGGER.info("init() of the MessageServiceTest");
+        log.info("init() of the MessageServiceTest");
     }
 
     @Test
@@ -67,12 +67,12 @@ public class MessageServiceTest {
         final String result = messageService.getMessage(System.getProperty("user.name"));
         Assert.assertNotNull("Result of the Service is Null ", result);
         Assert.assertTrue("Invalid Response form the Service ", result.contains(System.getProperty("user.name")));
-        LOGGER.info("Response from the service {}"+result);
+        log.info("Response from the service {}" , result);
     }
 
 
     @After
     public void destroy() throws Exception {
-        LOGGER.info("destroy() of the MessageServiceTest");
+        log.info("destroy() of the MessageServiceTest");
     }
 }
