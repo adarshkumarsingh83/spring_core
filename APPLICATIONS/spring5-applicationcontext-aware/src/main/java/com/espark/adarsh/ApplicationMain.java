@@ -45,7 +45,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 @Slf4j
 public class ApplicationMain {
 
-
     public static void main(String[] args) {
         final ApplicationContext context = new ClassPathXmlApplicationContext("classpath:/application-configuration.xml");
         final MessageService bean = context.getBean(MessageService.class);
