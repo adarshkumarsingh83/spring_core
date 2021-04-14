@@ -1,4 +1,4 @@
-package com.adarsh.spring.test;
+package com.adarsh.spring;
 
 import com.adarsh.spring.bean.Message;
 import com.adarsh.spring.service.MyMessageService;
