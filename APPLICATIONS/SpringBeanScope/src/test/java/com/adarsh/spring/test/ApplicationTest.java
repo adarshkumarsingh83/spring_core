@@ -1,25 +1,24 @@
 package com.adarsh.spring.test;
 
 import com.adarsh.spring.bean.MyService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
  * @author Adarsh
  * @author $LastChangedBy: adarsh $
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@Slf4j
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"classpath:/spring/applicationContext.xml"})
 public class ApplicationTest {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(ApplicationTest.class);
 
     @Qualifier(value = "myServiceSingleTon")
     @Autowired(required = true)
@@ -41,16 +40,16 @@ public class ApplicationTest {
     public void testMyService(){
 
         myServiceSingleTon1.getMessage();
-        LOGGER.info(" :=> myServiceSingleTon " + myServiceSingleTon1.hashCode());
+        log.info(" :=> myServiceSingleTon " + myServiceSingleTon1.hashCode());
 
         myServiceSingleTon2.getMessage();
-        LOGGER.info(" :=> myServiceSingleTon " + myServiceSingleTon2.hashCode());
+        log.info(" :=> myServiceSingleTon " + myServiceSingleTon2.hashCode());
 
         myServicePrototype1.getMessage();
-        LOGGER.info(" :=> myServicePrototype " + myServicePrototype1.hashCode());
+        log.info(" :=> myServicePrototype " + myServicePrototype1.hashCode());
 
         myServicePrototype2.getMessage();
-        LOGGER.info(" :=> myServicePrototype " + myServicePrototype2.hashCode());
+        log.info(" :=> myServicePrototype " + myServicePrototype2.hashCode());
 
     }
 }
