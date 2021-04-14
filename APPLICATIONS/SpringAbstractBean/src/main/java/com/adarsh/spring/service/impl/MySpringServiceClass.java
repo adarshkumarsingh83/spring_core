@@ -31,6 +31,7 @@
 package com.adarsh.spring.service.impl;
 
 import com.adarsh.spring.service.construct.MySpringWishImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanNameAware;
@@ -41,9 +42,9 @@ import org.springframework.beans.factory.BeanNameAware;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 public class MySpringServiceClass implements BeanNameAware {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(MySpringServiceClass.class);
 
     private String beanName;
     private MySpringWishImpl myClass;
@@ -53,7 +54,7 @@ public class MySpringServiceClass implements BeanNameAware {
     }
 
     public String method() {
-        LOGGER.info("Bean Name is " + beanName);
+        log.info("Bean Name is " + beanName);
          return myClass.getWish();
     }
 
