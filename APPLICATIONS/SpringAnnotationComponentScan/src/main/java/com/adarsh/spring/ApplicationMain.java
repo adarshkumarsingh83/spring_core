@@ -28,8 +28,9 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.adarsh.spring.main;
+package com.adarsh.spring;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -39,6 +40,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 public class ApplicationMain {
 
     public static void main(String[] args) {
@@ -47,7 +49,7 @@ public class ApplicationMain {
 
         String[] beans = context.getBeanDefinitionNames();
         for (String bean : beans) {
-            System.out.println(bean);
+            log.info(bean);
         }
 
     }
