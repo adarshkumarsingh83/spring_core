@@ -2,9 +2,11 @@ package com.espark.adarsh;
 
 import com.espark.adarsh.exception.EmpployeeNotFoundException;
 import com.espark.adarsh.service.EmployeeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+@Slf4j
 public class ApplicationMain {
     public static void main(String[] args) throws EmpployeeNotFoundException {
         @SuppressWarnings("resource")
@@ -17,9 +19,9 @@ public class ApplicationMain {
         
         employeeService.getEmployees().stream().forEach(employee -> {
 
-            System.out.println("Employee Id "+employee.getId());
-            System.out.println("Employee Name "+employee.getName());
-            System.out.println("Employee Email "+employee.getEmail());
+            log.info("Employee Id "+employee.getId());
+            log.info("Employee Name "+employee.getName());
+            log.info("Employee Email "+employee.getEmail());
         });
     }
 }

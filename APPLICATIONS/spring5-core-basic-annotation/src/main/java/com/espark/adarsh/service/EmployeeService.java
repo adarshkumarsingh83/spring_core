@@ -4,12 +4,14 @@ import com.espark.adarsh.bean.Employee;
 import com.espark.adarsh.exception.EmpployeeAlreadyExisitException;
 import com.espark.adarsh.exception.EmpployeeNotFoundException;
 import com.espark.adarsh.repository.EmployeeRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class EmployeeService {
 
@@ -20,7 +22,7 @@ public class EmployeeService {
     EmployeeRepository employeeRepository;
 
     public void showMessage() {
-        System.out.println("Message " + this.message);
+        log.info("Message " + this.message);
     }
 
     public Employee saveEmployee(Employee employee) throws EmpployeeAlreadyExisitException {
