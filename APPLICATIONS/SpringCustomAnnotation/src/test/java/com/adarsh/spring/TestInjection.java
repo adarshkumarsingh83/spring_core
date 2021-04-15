@@ -16,18 +16,13 @@ package com.adarsh.spring;
 
 import com.adarsh.spring.bean.MessageBean;
 import com.adarsh.spring.service.MyService;
-import com.adarsh.spring.service.MyServiceImplOne;
-import com.adarsh.spring.service.MyServiceImplTwo;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Map;
 
@@ -37,11 +32,11 @@ import java.util.Map;
  * @version $Revision: 1.0 $, $Date:: 12/6/13 1:46 PM
  * @see
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@Slf4j
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"classpath:/configuration/applicationContext.xml"})
 public class TestInjection {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestInjection.class);
 
     @Qualifier(value = "myServiceImplOne")
     @Autowired(required = true)
@@ -57,12 +52,12 @@ public class TestInjection {
         Map<Object, Object> map1 = myServiceImplOne.getBeanObjects();
         for (Map.Entry entry : map1.entrySet()) {
             MessageBean messageBean=(MessageBean)entry.getValue();
-            LOGGER.info(myServiceImplOne.getMsgText()+" "+entry.getKey() + " " + entry.getValue()+" "+messageBean.getMsgData());
+            log.info(myServiceImplOne.getMsgText()+" "+entry.getKey() + " " + entry.getValue()+" "+messageBean.getMsgData());
         }
         Map<Object, Object> map2 = myServiceImplTwo.getBeanObjects();
         for (Map.Entry entry : map2.entrySet()) {
             MessageBean messageBean=(MessageBean)entry.getValue();
-            LOGGER.info(myServiceImplTwo.getMsgText()+"  "+entry.getKey() + " " + entry.getValue()+" "+messageBean.getMsgData());
+            log.info(myServiceImplTwo.getMsgText()+"  "+entry.getKey() + " " + entry.getValue()+" "+messageBean.getMsgData());
         }
     }
 }

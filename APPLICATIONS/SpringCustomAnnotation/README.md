@@ -1,3 +1,12 @@
+# SpringCustomAnnotation
+
+---
+
+
+### To Build Code 
+* mvn clean package 
+
+```
 @Target(ElementType.PACKAGE), package header
 @Target(ElementType.TYPE), class header
 @Target(ElementType.CONSTRUCTOR), constructor header
@@ -26,3 +35,4 @@ public enum ElementType {
   ANNOTATION_TYPE,	// Annotation Types (meta-annotations)
   PACKAGE		// Java package
 }
+```

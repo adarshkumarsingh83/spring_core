@@ -14,8 +14,8 @@ package com.adarsh.spring.annotation;
  */
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.platform.commons.logging.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
@@ -34,15 +34,14 @@ import java.util.Map;
  * @version $Revision: 1.0 $, $Date:: 12/6/13 12:05 PM
  * @see
  */
-
+@Slf4j
 @Component(value = "annotationProcessor")
 public class AnnotationProcessor implements BeanPostProcessor, ApplicationContextAware {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AnnotationProcessor.class);
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        LOGGER.trace("postProcessBeforeInitialization() " + bean.getClass().getCanonicalName() + "  " + beanName);
+        log.trace("postProcessBeforeInitialization() " + bean.getClass().getCanonicalName() + "  " + beanName);
         final Class clazz = bean.getClass();
         final Annotation[] classAnnotations = clazz.getAnnotations();
 
@@ -58,7 +57,7 @@ public class AnnotationProcessor implements BeanPostProcessor, ApplicationContex
                         field.setAccessible(true);
                         field.set(bean, LoggerFactory.getLogger(className));
                     } catch (Exception e) {
-                        LOGGER.error(e.getMessage());
+                        log.error(e.getMessage());
                     }
                 }
             }
@@ -85,7 +84,7 @@ public class AnnotationProcessor implements BeanPostProcessor, ApplicationContex
                                 }
                             }
                         } catch (Exception e) {
-                            LOGGER.error(e.getMessage());
+                            log.error(e.getMessage());
                         }
                     }
                 }
@@ -108,7 +107,7 @@ public class AnnotationProcessor implements BeanPostProcessor, ApplicationContex
                 }
             }
         } catch (Exception e) {
-            LOGGER.error(e.getMessage());
+            log.error(e.getMessage());
         }
         return bean;
     }
@@ -131,7 +130,7 @@ public class AnnotationProcessor implements BeanPostProcessor, ApplicationContex
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        LOGGER.trace("postProcessAfterInitialization() " + bean.getClass().getCanonicalName() + "  " + beanName);
+        log.trace("postProcessAfterInitialization() " + bean.getClass().getCanonicalName() + "  " + beanName);
         return bean;
     }
 
