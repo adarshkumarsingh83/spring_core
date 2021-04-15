@@ -43,7 +43,7 @@ public class ApplicationMain {
 
 
 	public static void main(String[] args) {
-		FileSystemXmlApplicationContext fileSystemXmlApplicationContext=new FileSystemXmlApplicationContext("src\\main\\resources\\spring\\applicationContext.xml");
+		FileSystemXmlApplicationContext fileSystemXmlApplicationContext=new FileSystemXmlApplicationContext("src/main/resources/spring/applicationContext.xml");
 		MySpringInterface object=(MySpringInterface)fileSystemXmlApplicationContext.getBean("businessObject");
 	    object.getWishMsg();
 	    
