@@ -1,6 +1,6 @@
 package com.adarsh.spring.service;
 
-import com.adarsh.spring.bean.SpringTestBean;
+import com.adarsh.spring.bean.SpringDataBean;
 
 /**
  * @author Adarsh
@@ -11,5 +11,5 @@ public interface BusinessService {
 
     public void wishMsg();
 
-    public void setSpringTestBean(SpringTestBean springTestBean);
+    public void setSpringDataBean(SpringDataBean springTestBean);
 }

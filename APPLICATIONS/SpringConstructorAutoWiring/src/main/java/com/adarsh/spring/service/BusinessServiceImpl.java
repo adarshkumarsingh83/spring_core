@@ -1,6 +1,6 @@
 package com.adarsh.spring.service;
 
-import com.adarsh.spring.bean.SpringTestBean;
+import com.adarsh.spring.bean.SpringDataBean;
 
 /**
  * @author Adarsh
@@ -9,14 +9,14 @@ import com.adarsh.spring.bean.SpringTestBean;
  */
 public class BusinessServiceImpl implements BusinessService {
 
-    private SpringTestBean springTestBean;
+    private SpringDataBean springTestBean;
 
-    public BusinessServiceImpl(SpringTestBean springTestBean) {
-        this.springTestBean = springTestBean;
+    public BusinessServiceImpl(SpringDataBean springDataBean) {
+        this.springTestBean = springDataBean;
     }
 
-    public void setSpringTestBean(SpringTestBean springTestBean) {
-        this.springTestBean = springTestBean;
+    public void setSpringDataBean(SpringDataBean springDataBean) {
+        this.springTestBean = springDataBean;
     }
 
     public void wishMsg() {

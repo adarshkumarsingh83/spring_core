@@ -10,7 +10,7 @@
 
     <context:property-placeholder location="classpath*:/properties/application.properties" />
  
-  <bean id="springTestBean" class="com.adarsh.spring.bean.SpringTestBean">
+  <bean id="springTestBean" class="com.adarsh.spring.bean.SpringDataBean">
        <property name="userName" value="${app.user.name}"/>
  </bean>
   
