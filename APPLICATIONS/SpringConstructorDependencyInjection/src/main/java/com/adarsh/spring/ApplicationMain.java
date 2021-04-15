@@ -1,4 +1,4 @@
-package com.adarsh.spring.main;
+package com.adarsh.spring;
 
 import com.adarsh.spring.service.MyBusinessService;
 import org.springframework.context.ApplicationContext;
@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author $LastChangedBy: adarsh $
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
-public class ClientClass {
+public class ApplicationMain {
 
     public static void main(String[] args) {
 
