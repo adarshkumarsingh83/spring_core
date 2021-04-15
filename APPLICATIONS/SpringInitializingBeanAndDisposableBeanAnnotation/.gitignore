@@ -1,4 +1,5 @@
 target/
+APPLICATION_HOME_IS_UNDEFINED
 !.mvn/wrapper/maven-wrapper.jar
 *.DS_Store
 ### STS ###
