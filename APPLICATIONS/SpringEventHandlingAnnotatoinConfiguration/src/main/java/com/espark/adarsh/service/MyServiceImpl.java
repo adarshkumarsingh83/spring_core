@@ -1,7 +1,6 @@
 package com.espark.adarsh.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -10,15 +9,15 @@ import org.springframework.stereotype.Service;
  * @author $LastChangedBy: adarsh $
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
+@Slf4j
 @Service("myService")
 public class MyServiceImpl implements MyService {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(MyServiceImpl.class);
 
     @Value(("${application.message}"))
     private String message;
 
     public void getMessage() {
-        LOGGER.info(":=> Your Message : " + message);
+        log.info(":=> Your Message : " + message);
     }
 }

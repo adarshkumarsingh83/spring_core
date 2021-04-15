@@ -1,0 +1,30 @@
+package com.adarsh.spring.test;
+
+import com.espark.adarsh.configuration.ApplicationConfiguration;
+import com.espark.adarsh.service.MyService;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+/**
+ * @author Adarsh
+ * @author $LastChangedBy: adarsh $
+ * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
+ */
+@Slf4j
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = ApplicationConfiguration.class)
+public class ApplicationMainTest {
+
+
+    @Autowired(required = true)
+    private MyService myService;
+
+    @Test
+    public void testMyService() {
+        myService.getMessage();
+    }
+}
