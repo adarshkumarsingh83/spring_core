@@ -1,31 +1,30 @@
 package com.adarsh.spring.bean;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Adarsh
  * @author $LastChangedBy: adarsh $
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
-public class SpringTestBean {
+@Slf4j
+public class SpringDataBean {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(SpringTestBean.class);
-    private static SpringTestBean springTestBean;
+    private static SpringDataBean springTestBean;
     private String userName;
     
     static{
-    	springTestBean =new SpringTestBean();
+    	springTestBean =new SpringDataBean();
     }
     
-    private SpringTestBean(){
-        LOGGER.info("Constructor of the IestBean ");
+    private SpringDataBean(){
+        log.info("Constructor of the IestBean ");
     }
     public void setUserName(String userName){
     	this.userName=userName;
     }
     
-    public static SpringTestBean myFactory(){
+    public static SpringDataBean myFactory(){
     	return springTestBean;
     }
     

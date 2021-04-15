@@ -1,4 +1,4 @@
-package com.adarsh.spring.test;
+package com.adarsh.spring;
 import com.adarsh.spring.service.MySpringBeanService;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 /**
@@ -7,10 +7,10 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
 
-public class ClientClass {
+public class ApplicationMain {
 
 	public static void main(String[] args) {
-		FileSystemXmlApplicationContext ctc=new FileSystemXmlApplicationContext("src\\main\\resources\\spring\\applicationContext.xml");
+		FileSystemXmlApplicationContext ctc=new FileSystemXmlApplicationContext("src/main/resources/spring/applicationContext.xml");
 		MySpringBeanService object=(MySpringBeanService)ctc.getBean("businessObject");
 	    object.getWish();
 	}

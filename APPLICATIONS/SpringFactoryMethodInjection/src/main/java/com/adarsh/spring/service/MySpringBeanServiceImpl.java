@@ -1,29 +1,28 @@
 package com.adarsh.spring.service;
 
-import com.adarsh.spring.bean.SpringTestBean;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.adarsh.spring.bean.SpringDataBean;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Adarsh
  * @author $LastChangedBy: adarsh $
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
+@Slf4j
 public class MySpringBeanServiceImpl implements MySpringBeanService {
-   private SpringTestBean springTestBean;
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(MySpringBeanServiceImpl.class);
+    private SpringDataBean springTestBean;
 
-   public MySpringBeanServiceImpl(){
-	   super();
-   }
-     
-   
-   public void setSpringTestBean(SpringTestBean springTestBean){
-	   this.springTestBean = springTestBean;
-   }
-   
-   public void getWish(){
-       LOGGER.info(":=> "+springTestBean.getMsg());
-   }
+    public MySpringBeanServiceImpl() {
+        super();
+    }
+
+
+    public void setSpringTestBean(SpringDataBean springTestBean) {
+        this.springTestBean = springTestBean;
+    }
+
+    public void getWish() {
+        log.info(":=> " + springTestBean.getMsg());
+    }
 }

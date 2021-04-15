@@ -1,6 +1,6 @@
 package com.adarsh.spring.service;
 
-import com.adarsh.spring.bean.SpringTestBean;
+import com.adarsh.spring.bean.SpringDataBean;
 
 /**
  * @author Adarsh
@@ -11,6 +11,6 @@ public interface MySpringBeanService {
 
     public void getWish();
 
-    public void setSpringTestBean(SpringTestBean springTestBean);
+    public void setSpringTestBean(SpringDataBean springTestBean);
 
 }
