@@ -1,4 +1,4 @@
-package com.adarsh.spring.test;
+package com.adarsh.spring;
 
 import com.adarsh.spring.bean.Employee;
 import com.adarsh.spring.respository.EmployeeRepository;
