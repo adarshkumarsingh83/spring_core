@@ -3,25 +3,23 @@ package com.adarsh.spring.properties;
 import com.adarsh.spring.bean.MyBean;
 import com.adarsh.spring.manager.MyManager;
 import com.adarsh.spring.service.MyService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
-
-@RunWith(SpringJUnit4ClassRunner.class)
+@Slf4j
+@ExtendWith(SpringExtension.class)
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class})
 @ContextConfiguration(locations = "classpath*:/spring/applicationContext.xml")
-public class PropertiesTest {
+public class ApplicationMainTest {
 
-    protected static final Logger LOGGER = LoggerFactory.getLogger(PropertiesTest.class);
     @Qualifier("myServiceImpl")
     @Autowired(required = true)
     MyService myService;
@@ -38,12 +36,12 @@ public class PropertiesTest {
     @Test
     public void testProperties() {
 
-        LOGGER.info("value " + sampleValidationKey);
-        LOGGER.info("value " + myService.getApplicationLogLevel());
-        LOGGER.info("name " + myService.getAppName());
-        LOGGER.info("MyBean " + myBean.toString());
-        LOGGER.info("All Properties " + applicationProperties.getAllProperties().toString());
-        LOGGER.info("MyManager " + myManager.getMessage());
+        log.info("value " + sampleValidationKey);
+        log.info("value " + myService.getApplicationLogLevel());
+        log.info("name " + myService.getAppName());
+        log.info("MyBean " + myBean.toString());
+        log.info("All Properties " + applicationProperties.getAllProperties().toString());
+        log.info("MyManager " + myManager.getMessage());
 
     }
 

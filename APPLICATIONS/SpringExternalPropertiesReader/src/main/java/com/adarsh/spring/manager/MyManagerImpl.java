@@ -2,6 +2,7 @@ package com.adarsh.spring.manager;
 
 import com.adarsh.spring.annotation.Manager;
 import com.adarsh.spring.service.MyService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
  * Time: 10:34 AM
  * To change this template use File | Settings | File Templates.
  */
+@Slf4j
 @Manager(value = "myManagerImpl")
 public class MyManagerImpl implements MyManager {
 
@@ -42,7 +44,7 @@ public class MyManagerImpl implements MyManager {
     private MyService myService;
 
     public String getMessage() {
-        System.out.println("\n"+applicationLogLevel+" "+appName1+appName2+appName3+appName4);
+        log.info("\n"+applicationLogLevel+" "+appName1+appName2+appName3+appName4);
         return myService.getAppName();
     }
 }

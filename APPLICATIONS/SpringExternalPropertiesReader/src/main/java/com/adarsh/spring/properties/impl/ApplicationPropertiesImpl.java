@@ -10,8 +10,7 @@ import com.adarsh.spring.filesystem.impl.CreateFileSystemImpl;
 import com.adarsh.spring.filesystem.impl.FileSystemService;
 import com.adarsh.spring.filesystem.impl.FileSystemServiceImpl;
 import com.adarsh.spring.properties.ApplicationProperties;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
 import java.io.File;
@@ -26,16 +25,16 @@ import java.util.*;
  * @see com.adarsh.spring.properties.ApplicationProperties
  * @see org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
  */
+@Slf4j
 public class ApplicationPropertiesImpl extends PropertyPlaceholderConfigurer
         implements ApplicationProperties {
 
-    private final static Logger logger = LoggerFactory.getLogger(ApplicationPropertiesImpl.class);
     private static final CreateFileSystem createFileSystem = CreateFileSystemImpl.getInstance();
     private static Properties properties = new Properties();
     private static ApplicationProperties applicationProperties;
 
     public ApplicationPropertiesImpl() {
-        logger.trace("APPLICATION PROPERTIES INITIALISED ");
+        log.trace("APPLICATION PROPERTIES INITIALISED ");
         applicationProperties = this;
     }
 
@@ -55,7 +54,7 @@ public class ApplicationPropertiesImpl extends PropertyPlaceholderConfigurer
                     final boolean flush = Boolean.parseBoolean(fileSystemFlush);
                     if (flush) {
                         //1.creating file system.
-                        logger.info("creating new file system ");
+                        log.info("creating new file system ");
                         this.copyProperties(propertiesObject, properties);
                         this.copyProperties(fileSystemProperties, properties);
                         createFileSystem.inItProperties(applicationProperties);
@@ -67,7 +66,7 @@ public class ApplicationPropertiesImpl extends PropertyPlaceholderConfigurer
                 }
             } else {
                 //create file system.
-                logger.info("creating new file system ");
+                log.info("creating new file system ");
                 this.copyProperties(propertiesObject, properties);
                 createFileSystem.inItProperties(applicationProperties);
                 createFileSystem.createFileSystem();
@@ -82,7 +81,7 @@ public class ApplicationPropertiesImpl extends PropertyPlaceholderConfigurer
             super.setIgnoreUnresolvablePlaceholders(true);
             //super.setProperties(propertiesObject);
         } catch (Exception exception) {
-            logger.error(exception.getMessage());
+            log.error(exception.getMessage());
         } finally {
             this.copyProperties(propertiesObject, properties);
         }
@@ -117,13 +116,13 @@ public class ApplicationPropertiesImpl extends PropertyPlaceholderConfigurer
                                 fileSystemProperties.put(entry.getKey().toString(), entry.getValue());
                             }
                         } catch (Exception e) {
-                            logger.error(e.getMessage());
+                            log.error(e.getMessage());
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            logger.error(e.getLocalizedMessage());
+            log.error(e.getLocalizedMessage());
         }
         return fileSystemProperties;
     }
