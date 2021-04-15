@@ -1,8 +1,7 @@
 package com.espark.adarsh.service.impl;
-import com.espark.adarsh.service.MyBusinessService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import com.espark.adarsh.service.MyBusinessService;
+import lombok.extern.slf4j.Slf4j;
 import java.util.*;
 
 /**
@@ -10,9 +9,9 @@ import java.util.*;
  * @author $LastChangedBy: adarsh $
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
+@Slf4j
 public class MyBusinessServiceImpl implements MyBusinessService {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(MyBusinessServiceImpl.class);
 	private Set setObject;
 	
 	public MyBusinessServiceImpl() {
@@ -30,7 +29,7 @@ public class MyBusinessServiceImpl implements MyBusinessService {
 	public void displaySet() {
 		 final Iterator itr = setObject.iterator();
 		  while(itr.hasNext()){
-              LOGGER.info(" :-> " + itr.next());
+              log.info(" :-> " + itr.next());
 		 }
 	}
 

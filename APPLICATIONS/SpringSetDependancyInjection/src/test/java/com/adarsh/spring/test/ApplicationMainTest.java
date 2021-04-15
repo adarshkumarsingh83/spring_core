@@ -1,24 +1,23 @@
 package com.adarsh.spring.test;
 
 import com.espark.adarsh.service.MyBusinessService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
  * @author Adarsh
  * @author $LastChangedBy: adarsh $
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@Slf4j
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"classpath:/spring/applicationContext.xml"})
-public class ApplicationTest {
+public class ApplicationMainTest {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(ApplicationTest.class);
 
     @Autowired(required = true)
     private MyBusinessService myBusinessService;
