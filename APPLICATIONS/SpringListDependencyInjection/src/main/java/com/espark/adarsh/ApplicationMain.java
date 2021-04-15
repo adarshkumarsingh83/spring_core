@@ -41,7 +41,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  */
 public class ApplicationMain {
     public static void main(String[] args) {
-        FileSystemXmlApplicationContext fileSystemXmlApplicationContext=new FileSystemXmlApplicationContext("src\\main\\resources\\spring\\applicationContext.xml");
+        FileSystemXmlApplicationContext fileSystemXmlApplicationContext=new FileSystemXmlApplicationContext("src/main/resources/spring/applicationContext.xml");
         BusinessService businessService=(BusinessService)fileSystemXmlApplicationContext.getBean("businessObject");
         businessService.displayList();
     }

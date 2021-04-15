@@ -31,6 +31,7 @@ package com.espark.adarsh.service.impl;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 import com.espark.adarsh.service.BusinessService;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,9 +44,9 @@ import java.util.List;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 public class BusinessServiceImpl implements BusinessService {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(BusinessServiceImpl.class);
 
     public List<String> listObject;
 
@@ -64,7 +65,7 @@ public class BusinessServiceImpl implements BusinessService {
     public void displayList() {
         Iterator itr = listObject.iterator();
         while (itr.hasNext()) {
-            LOGGER.info(":=> " + itr.next().toString());
+            log.info(":=> " + itr.next().toString());
         }
     }
 }

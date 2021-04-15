@@ -31,13 +31,12 @@
 package com.adarsh.spring.test;
 
 import com.espark.adarsh.service.BusinessService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
  * @author Adarsh Kumar
@@ -45,11 +44,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@Slf4j
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"classpath:/spring/applicationContext.xml"})
-public class ApplicationTest {
+public class ApplicationMainTest {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(ApplicationTest.class);
 
     @Autowired(required = true)
     private BusinessService businessService;
