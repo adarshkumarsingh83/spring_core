@@ -31,6 +31,7 @@
 package com.espark.adarsh.service.impl;
 
 import com.espark.adarsh.service.MyBusinessService;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,9 +45,9 @@ import java.util.*;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 public class MyBusinessServiceImpl implements MyBusinessService {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(MyBusinessServiceImpl.class);
     private Map mapObject;
 
     public MyBusinessServiceImpl() {
@@ -67,7 +68,7 @@ public class MyBusinessServiceImpl implements MyBusinessService {
         Iterator itr = setObject.iterator();
         while (itr.hasNext()) {
             Map.Entry mapEntry = (Map.Entry) itr.next();
-            LOGGER.info(":=> "+mapEntry.getKey().toString() + " -> " + mapEntry.getValue().toString());
+            log.info(":=> "+mapEntry.getKey().toString() + " -> " + mapEntry.getValue().toString());
         }
     }
 

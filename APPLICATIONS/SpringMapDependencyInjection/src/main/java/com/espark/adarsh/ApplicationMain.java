@@ -44,7 +44,7 @@ import org.springframework.beans.factory.xml.*;
 public class ApplicationMain {
 
 	public static void main(String[] args) {
-        FileSystemXmlApplicationContext factory=new FileSystemXmlApplicationContext("src\\main\\resources\\spring\\applicationContext.xml");
+        FileSystemXmlApplicationContext factory=new FileSystemXmlApplicationContext("src/main/resources/spring/applicationContext.xml");
 		MyBusinessService object=(MyBusinessService)factory.getBean("myBusinessObject");
 		object.displayMap();
 	}
