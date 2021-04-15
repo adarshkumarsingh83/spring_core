@@ -1,4 +1,4 @@
-package com.adarsh.spring.main;
+package com.adarsh.spring;
 
 import com.adarsh.spring.service.MyService;
 import org.springframework.context.support.AbstractApplicationContext;

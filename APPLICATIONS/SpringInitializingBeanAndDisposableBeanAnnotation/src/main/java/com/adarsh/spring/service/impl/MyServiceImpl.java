@@ -1,8 +1,7 @@
 package com.adarsh.spring.service.impl;
 
 import com.adarsh.spring.service.MyService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,17 +15,17 @@ import javax.annotation.PreDestroy;
  * @author $LastChangedBy: adarsh $
  * @version $Revision: 1595 $, $Date:: 5/4/12 6:12 PM#$
  */
+@Slf4j
 @Service(value = "myService")
 public class MyServiceImpl implements MyService, InitializingBean, DisposableBean {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(MyServiceImpl.class);
     
     @Value("${app.service.msg}")
     private String msg;
 
     @PostConstruct
     public void init() {
-       LOGGER.info(":=> Init Method()");
+       log.info(":=> Init Method()");
     }
 
     @Override
@@ -41,18 +40,18 @@ public class MyServiceImpl implements MyService, InitializingBean, DisposableBea
 
     @Override
     public void afterPropertiesSet() throws Exception {
-       LOGGER.info(":=> After Property Set()");
+       log.info(":=> After Property Set()");
     }
 
     @Override
     public void destroy() throws Exception {
-       LOGGER.info(":=> Destory()");
+       log.info(":=> Destory()");
     }
 
 
     @PreDestroy
     public void close() {
-       LOGGER.info(":=> close()");
+       log.info(":=> close()");
     }
 
 }
