@@ -29,8 +29,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package com.espark.adarsh.service;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
 
@@ -41,9 +40,9 @@ import java.util.*;
  * @version $Revision: 0001 $, $Date:: 1/1/10 0:00 AM#$
  * @Espark @copyright all right reserve
  */
+@Slf4j
 public class MyBusinessServiceImpl implements MyBusinessService {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(MyBusinessServiceImpl.class);
 
 	private Properties propertiesFile;
 	
@@ -62,7 +61,7 @@ public class MyBusinessServiceImpl implements MyBusinessService {
 	public void displayPropertyFile()throws Exception{
 	Enumeration<Object> enm=propertiesFile.elements();
 	  while(enm.hasMoreElements()){
-          LOGGER.info(" :=> "+enm.nextElement().toString());
+          log.info(" :=> "+enm.nextElement().toString());
 	  }
 	}
 
