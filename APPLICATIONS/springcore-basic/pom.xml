@@ -16,7 +16,7 @@
         <project.name>springcore-basic</project.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <org.springframework.version>5.2.19.RELEASE</org.springframework.version>
+        <org.springframework.version>5.3.19</org.springframework.version>
         <maven.lombok>1.18.10</maven.lombok>
         <junit.version>5.5.2</junit.version>
         <junit.platform.version>1.5.2</junit.platform.version>
